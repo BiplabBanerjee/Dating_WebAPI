@@ -1,5 +1,6 @@
 ﻿using DatingWebAPI.Data;
 using DatingWebAPI.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,6 +25,7 @@ namespace DatingWebAPI.Controllers
             return Ok(members);
         }
 
+        [Authorize]
         [HttpGet("GetmemberByID/{id}")]
         public async Task<ActionResult<AppUser>> GetmemberByID(string id)
         {
